@@ -2,7 +2,7 @@
 *1/9/16*
 
 ## File system hierachy
-![](/home/atila29/Documents/notes_md/linux_62501/pics/file_hierachy.jpg "file system hierachy")
+![](./linux_62501/pics/file_hierachy.jpg "file system hierachy")
 <br><br>
 Directory|description
 ---------|-----------
