@@ -1,0 +1,19 @@
+{
+  "name": "notes_md",
+  "version": "1.0.0",
+  "description": "Noter til samtlige fag på dtu, 5 semester Mathias Petersen.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "keywords": [
+    "dtu",
+    "test"
+  ],
+  "author": "Mathias Petersen",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "markdown-pdf": "^7.0.0"
+  }
+}
