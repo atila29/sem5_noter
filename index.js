@@ -16,6 +16,11 @@ var titles = {
   }
 }
 
+// Options for Css
+var options = {
+  cssPath: './css/markdown.css'
+}
+
 // function to get content of folders as arrays.
 function getFiles (dir, files_){
     files_ = files_ || [];
@@ -42,7 +47,7 @@ _.forEach(titles, function(book) {
   console.log(book);
   var file = getFiles(path.resolve(__dirname, book.dir));
   console.log(file)
-  markdown().concat.from(file).to(path.resolve("./dist/", book.title));
+  markdown(options).concat.from(file).to(path.resolve("./dist/", book.title));
 });
 
 //web_tjenester = getFiles(path.resolve(__dirname, titles.web_tjenester.dir));

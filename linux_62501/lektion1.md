@@ -4,6 +4,11 @@
 ## File system hierachy
 ![](./linux_62501/pics/file_hierachy.jpg "file system hierachy")
 <br><br>
+```javascript
+// All the code you will ever need
+var hw = "Hello World!"
+alert(hw);
+```
 Directory|description
 ---------|-----------
 / | Primary hierarchy root and root directory of the entire file system hierarchy.
