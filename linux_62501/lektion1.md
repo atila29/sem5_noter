@@ -4,11 +4,6 @@
 ## File system hierachy
 ![](./linux_62501/pics/file_hierachy.jpg "file system hierachy")
 <br><br>
-```javascript
-// All the code you will ever need
-var hw = "Hello World!"
-alert(hw);
-```
 Directory|description
 ---------|-----------
 / | Primary hierarchy root and root directory of the entire file system hierarchy.
@@ -48,7 +43,16 @@ usr/local | Tertiary hierarchy for local data, specific to this host. Typically 
 /var/run | Run-time variable data. This directory contains system information data describing the system since it was booted.\nIn FHS 3.0, /var/run is replaced by /run; a system should either continue to provide a /var/run directory, or provide a symbolic link from /var/run to /run, for backwards compatibility
 /var/spool | Spool for tasks waiting to be processed, e.g., print queues and outgoing mail queue.
 /var/tmp | Temporary files to be preserved between reboots.
-## commands
+<br><br><br><br>
+## commmon commands
 ```bash
-
+pwd                           Path to current Directory
+cd                            change directory
+ls                            list directory
+touch                         update timestamp on file, if file doesn't exist creates it
+mkdir                         create a directory
+echo "foo" > bar.txt          overwrites file
+echo "foo" >> bar.txt         append to file
+grep foo < bar.txt            finds the line
+grep foo << bar.txt
 ```

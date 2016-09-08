@@ -39,6 +39,10 @@
    Only appears if one of those three are in the document.
 */
 
+body {
+      font-size: 65%;
+}
+
 div#header, header
     {
     /* Put border on bottom. Separates it from TOC or body that comes after it. */
