@@ -1,0 +1,112 @@
+# Lektion 3
+## http
+*skriv noget om http her*
+## http & soap
+http requst for soap must be POST..
+content-type must be text/xml.
+Header must have a SOAPAction field.
+
+example of SOAP requst(POST) message:
+*brug data fra tcpMon*
+```
+POST /url HTTP/1.1
+Host: HostServerName
+Content-type: text/xml; charset=utf-8
+Content-length: 350
+SoapAction: http://tempUri.org/GetCustomerInfo
+...
+
+<?xml version="1.0" encoding="utf-8" ?>
+<soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+     <GetCustomerInfo xmlns="http://tempUri.org/">
+      <CustomerID>1</CustomerID>
+      <OutputParam />
+    </GetCustomerInfo>
+  </soap:Body>
+</soap:Envelope>
+```
+## SOAP part II
+### SOAP security
+
+### WS-Reliable messaging
+
+### SOAP faults
+two different types of faults:
+* checked (Exception)
+* unchecked (error)
+If Exception is used, client is forced to handle the Exception.
+## WSDL
+Describes the web service interface.
+### XML Schema
+### Structure of WSDL documents
+#### example of wsdl 2.0 document:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.w3.org/ns/wsdl"
+             xmlns:tns="http://www.tmsws.com/wsdl20sample"
+             xmlns:whttp="http://schemas.xmlsoap.org/wsdl/http/"
+             xmlns:wsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+             targetNamespace="http://www.tmsws.com/wsdl20sample">
+
+<documentation>
+    This is a sample WSDL 2.0 document.
+</documentation>
+
+<!-- Abstract type -->
+   <types>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns="http://www.tmsws.com/wsdl20sample"
+                targetNamespace="http://www.example.com/wsdl20sample">
+
+         <xs:element name="request"> ... </xs:element>
+         <xs:element name="response"> ... </xs:element>
+      </xs:schema>
+   </types>
+
+<!-- Abstract interfaces -->
+   <interface name="Interface1">
+      <fault name="Error1" element="tns:response"/>
+      <operation name="Get" pattern="http://www.w3.org/ns/wsdl/in-out">
+         <input messageLabel="In" element="tns:request"/>
+         <output messageLabel="Out" element="tns:response"/>
+      </operation>
+   </interface>
+
+<!-- Concrete Binding Over HTTP -->
+   <binding name="HttpBinding" interface="tns:Interface1"
+            type="http://www.w3.org/ns/wsdl/http">
+      <operation ref="tns:Get" whttp:method="GET"/>
+   </binding>
+
+<!-- Concrete Binding with SOAP-->
+   <binding name="SoapBinding" interface="tns:Interface1"
+            type="http://www.w3.org/ns/wsdl/soap"
+            wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP/"
+            wsoap:mepDefault="http://www.w3.org/2003/05/soap/mep/request-response">
+      <operation ref="tns:Get" />
+   </binding>
+
+<!-- Web Service offering endpoints for both bindings-->
+   <service name="Service1" interface="tns:Interface1">
+      <endpoint name="HttpEndpoint"
+                binding="tns:HttpBinding"
+                address="http://www.example.com/rest/"/>
+      <endpoint name="SoapEndpoint"
+                binding="tns:SoapBinding"
+                address="http://www.example.com/soap/"/>
+   </service>
+</description>
+```
+
+## Messages
+
+### Message exchange patterns
+one way is most common, the others are almost never used.
+They are almost contradictions of http.
+#### one way
+#### Solicit-response
+#### Notifications

@@ -66,3 +66,4 @@ snort:!:17016:0:99999:7:::
 sslh:!!:17016::::::
 nvidia-persistenced:!:17028:0:99999:7:::
 ```
+shadow is a file defining:
